@@ -19,7 +19,8 @@ git clone ${infrarepo}
 cd ${path}
 echo version = ${version} > version.tfvars
 sed -i s/?ref=.*\"/?ref=${gitref}\"/ terraform.tfvars
-sed -i s/github.com\\/.*\\//github.com\\/${githubaccount}\\// terraform.tfvars
+sed -i s/github.com\\/[^\\/]*\\//github.com\\/${githubaccount}\\// terraform.tfvars
+
 
 git config --global user.email "mikael+circleci@sennerholm.net"
 git config --global user.name "Circle CI"
